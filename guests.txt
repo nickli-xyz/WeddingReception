@@ -2,13 +2,12 @@
 1	戴俊杰
 1	王予平 Sally
 1	傅元芬
-1	戴依佳Stella
+1	小杨叔叔
 1	戴恩沐 Jacob
 1	戴兰萍
 1	姚建文
 1	陈虹
 1	李大器
-1	Xian Chen
 2	Haoqing Lin
 2	Shiying Luo
 2	Candice Zhou
@@ -17,90 +16,92 @@
 2	Yayi Hu
 2	Alen Chen
 2	Jingshao Zhang
-3	Chao Jui Huang
-3	Jen Chiu
-3	Darren Huang
-3	林牧师
-3	林师母
-3	林牧女儿
-3	林牧女儿
-3	Chris Kuo
-3	黄再英
+2	戴依佳Stella
+2	陈玺安
+3	Pastor Lin
+3	Emet Wang
+3	Lydia Lin
+3	Abigail Lin
+3	张学谦
 3	Peter Cheng
 3	Frances Su
 3	Noah Cheng
-4	陈春梅
-4	朱镇
-4	张学谦
-4	于海琳
-4	文达
-4	May
-5	Lydia Wang
+3	于海琳
+4	Chunmei Chen
+4	Zhen Zhu
+4	明霞
+4	Chris Kuo
+4	Wen Da Lin
+4	Mei Chun Lin
+4	Darren Huang
+4	Jen Chiu
+4	Chao Jui Huang
+4	Jianqing Ye
 5	Denni Zheng
+5	Linda Lin
 5	George Han
 5	潘力 Perry
-5	王裕豪
+5	Ana Chen
+5	Yuhao Wang
 5	Peter Pan
-5	Jane Yeh
 5	Eddie Liu
 5	Yolanda Ren
-6	Vivian Chu
-6	Horng Jyh Tam
-6	Ana Chen
-6	朱少冲
-6	韩羽晨
-6	Jasmine Han
-7	David Chow
-7	Jerry 吕
-7	夏江 John
+5	Lydia Wang
+10	Horng Jyh Tam
+10	Jane Yeh
+10	Victoria Li
+10	Sandy Yeh
+10	Katrina Luca
+10	Simon 陈旭良
+10	Shawn Lee
+10	Esther Hsu
+10	Chung Chu
+10	Vivian Chu
+7	Jenny Yu
+7	谢信 Gavin
+7	Selina
 7	Cici
 7	Emily
 7	Michael
 7	Ruth Liu
-7	欣怡
-7	非易
-7	Sandy Yeh
-8	Grace Li
-8	JS Lee
-8	Victoria
-8	谢信 Gavin 
-8	Selina
-8	Simon 陈旭良
-8	Katrina Luca
-8	阚俊杰
-8	韩一州
-8	凤玲
-9	李严琦
-9	Michelle
+7	David Chow
+7	Grace Li
+7	JS Lee
+9	Yanqi Li
+9	Yuxi Yang
 9	Andy Zhang
 9	Lexie
-9	邓光磊
-9	Yuki
+9	Guanglei Deng
+9	Yuqi Wang
 9	Michael Guo
 9	Sandra Arango
-9	Zhao Liu
 9	Miley Wu
 9	Roger Huang
-10	Zhe Chen
-10	My ly Chau
-10	Zyra Chen
-10	Toby kang
-10	June Deng
-10	Adeline Kang
-10	Mark Kang
-11	Eru
-11	Noah
-11	Xinzhong Zhang
-11	Neng Wang
-11	Rex Chen
-11	Mamie Chen
-11	Bethany chen
-12	Ben Wang
-12	Pauline Liu
-12	Yiwei Wu
-12	Hui Zhao
-12	摄影师
-12	摄影师助手
-12	摄影师助手
-12	Layla
-12	Florist - Gen
+8	Eru
+8	Noah
+8	孔繁炘 Warren
+8	Pricilla Lin
+8	阚俊杰
+8	Jerry Lu
+8	夏江 John
+8	Tiffany Liu
+8	Xinyi Zheng
+8	Feiyi Ma
+6	Zhe Chen
+6	My ly Chau
+6	Zyra Chen
+6	Toby kang
+6	June Deng
+6	Adeline Kang
+6	Mark Kang
+6	Xinzhong Zhang
+6	Neng Wang
+11	Pauline Liu
+11	Layla
+11	Stephen Deng
+11	Qijia Li
+11	Zixuan Wang
+11	Florist - Gen
+11	Peter Kasius
+11	若菲
+11	袁志
