@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Taylor &amp; Nick Reception</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Jost:ital,wght@1,400;1,500;1,600&family=Playfair+Display:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Jost:ital,wght@1,400;1,500;1,600&family=Playfair+Display:wght@700&family=Parisienne&display=swap">
 <style>
   /* One deliberate light look, matching the invitation and the printed menus. */
   :root {
@@ -34,6 +34,8 @@
     --menu-serif: 'Playfair Display', Georgia, serif;
     --menu-sans: 'Jost', 'Futura', system-ui, sans-serif;
     --zh: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --zh-serif: 'Songti SC', 'STSong', 'SimSun', serif;
+    --script: 'Parisienne', 'Snell Roundhand', cursive;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; min-height: 100%; }
@@ -100,7 +102,7 @@
   .tabs {
     position: sticky; bottom: 0; z-index: 2;
     padding: 6px 8px calc(10px + env(safe-area-inset-bottom, 0px));
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px;
     background: #FFFDFB; border-top: 1px solid var(--line-soft);
   }
   .tab {
@@ -208,6 +210,46 @@
   .course[lang="zh-Hans"] .dish p { font-style: normal; }
   .course[lang="zh-Hans"] .dish .desc { line-height: 1.7; }
   .course[lang="zh-Hans"] .dish .note { font-size: 14px; color: var(--menu-ink-2); }
+
+  /* Schedule: the printed timeline card, pink for English and blue for Chinese */
+  .sched-screen {
+    --sched-bg: #F7DADD; --sched-accent: #C4454D; --sched-soft: #F2A9B4;
+    --sched-loop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='64' fill='none' stroke='%23F2A9B4' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 0v22c0 6 6 6 6 12s-9 7-9 0 3-6 3 2v28'/%3E%3C/svg%3E");
+    padding: 14px; background: var(--sched-bg); color: #2B2B2B;
+  }
+  .sched-screen.zh {
+    --sched-bg: #CDDCEC; --sched-accent: #5A80B0; --sched-soft: #9DB8DA;
+    --sched-loop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='64' fill='none' stroke='%239DB8DA' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 0v22c0 6 6 6 6 12s-9 7-9 0 3-6 3 2v28'/%3E%3C/svg%3E");
+  }
+  .sched-screen .menu-card { gap: 6px; padding-bottom: 44px; }
+  .sched-screen .langs { margin-bottom: 14px; }
+  .sched { width: 100%; display: flex; flex-direction: column; align-items: center; }
+  .sched .couple-names { margin: 0; font-family: var(--script); font-size: 46px; line-height: 1.2; color: var(--sched-accent); }
+  .sched .couple-art { display: block; width: 190px; height: auto; margin-top: 2px; }
+  .sched h2 {
+    margin: 22px 0 26px; display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--script); font-weight: 400; font-size: 30px; line-height: 1.2; color: var(--sched-accent);
+  }
+  .sched h2 svg { flex-shrink: 0; color: var(--sched-soft); }
+  /* On a phone the English title needs the full width to stay on one line. */
+  @media (max-width: 420px) { .sched[lang="en"] h2 { font-size: 25px; } .sched[lang="en"] h2 svg { display: none; } }
+  .sched[lang="zh-Hans"] h2 { font-family: var(--zh-serif); font-size: 32px; letter-spacing: 6px; }
+  .timeline { position: relative; width: 100%; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 28px; }
+  /* The looping ribbon down the middle, as on the printed card */
+  .timeline::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: calc(36% + 2px); width: 24px;
+    background: var(--sched-loop) 0 0 / 24px 64px repeat-y;
+  }
+  .timeline li { display: grid; grid-template-columns: 36% 28px 1fr; text-align: left; }
+  .timeline .time { grid-column: 1; padding-right: 8px; text-align: right; white-space: nowrap; font-family: var(--script); font-size: 22px; line-height: 1.2; }
+  .timeline .event { grid-column: 3; padding: 2px 0 0 10px; font-family: var(--sans); font-size: 17px; line-height: 1.35; }
+  .timeline .event small { display: block; margin-top: 2px; font-size: 15px; color: #555555; }
+  .sched[lang="zh-Hans"] .time { font-size: 20px; }
+  .sched[lang="zh-Hans"] .event { font-family: var(--zh); letter-spacing: 2px; }
+  .sched[lang="zh-Hans"] .event small { font-size: 14px; letter-spacing: 1px; }
+  .sched .ends { margin: 36px 0 0; display: flex; flex-direction: column; align-items: center; gap: 12px; font-family: var(--sans); font-size: 15px; color: var(--sched-accent); }
+  .sched[lang="zh-Hans"] .ends { font-family: var(--zh); letter-spacing: 1px; }
+  .sched .ends svg { color: var(--sched-soft); }
 </style>
 </head>
 <body>
@@ -242,6 +284,11 @@
         <button type="button" class="choice" data-go="menu">
           <span class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 7v3H17"></path></svg></span>
           <span class="text"><span class="title">Menu</span><span class="sub">Today’s lunch · 菜单（中英）</span></span>
+          <svg class="go" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+        </button>
+        <button type="button" class="choice" data-go="schedule">
+          <span class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+          <span class="text"><span class="title">Schedule</span><span class="sub">Reception timeline · 婚宴流程</span></span>
           <svg class="go" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
         </button>
         <a class="choice photos-link" href="#" target="_blank" rel="noopener">
@@ -341,6 +388,43 @@
       </div>
     </section>
 
+    <section class="screen sched-screen zh" id="schedule-screen" aria-label="Schedule" hidden>
+      <div class="menu-card">
+        <div class="langs" role="group" aria-label="Schedule language">
+          <button type="button" class="en" data-lang="en" aria-pressed="false">English</button>
+          <button type="button" class="zh" data-lang="zh" aria-pressed="true">中文</button>
+        </div>
+        <div class="sched" lang="en" data-lang="en" hidden>
+          <p class="couple-names" lang="en">Nick + Taylor</p>
+          <img class="couple-art" src="couple.png" alt="" width="274" height="217">
+          <h2><svg aria-hidden="true" width="44" height="16" viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 9c8-5 16 4 24 2s3-8-1-6-2 8 6 7 9-4 11-5"></path></svg><span>Wedding Reception Timeline</span><svg aria-hidden="true" width="44" height="16" viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M2 9c8-5 16 4 24 2s3-8-1-6-2 8 6 7 9-4 11-5"></path></svg></h2>
+          <ol class="timeline">
+            <li><span class="time">12:30 pm</span><span class="event">Cocktail Hour<small>(On the Deck, Access Through Garden Room)</small></span></li>
+            <li><span class="time">1:30 pm</span><span class="event">Wedding Luncheon</span></li>
+            <li><span class="time">2:15 pm</span><span class="event">Toasts from Family &amp; Friends</span></li>
+            <li><span class="time">3:30 pm</span><span class="event">Cake Cutting &amp; Toast</span></li>
+            <li><span class="time">4:15 pm</span><span class="event">Wedding Games</span></li>
+            <li><span class="time">4:45 pm<br>onwards</span><span class="event">Open Dancing</span></li>
+          </ol>
+          <p class="ends"><svg aria-hidden="true" width="140" height="22" viewBox="0 0 140 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h48M88 11h48"></path><path d="M70 10c-4-6-12-7-12-2s8 4 12 2zM70 10c4-6 12-7 12-2s-8 4-12 2zM70 10l-6 9M70 10l6 9"></path><circle cx="70" cy="10" r="1.6"></circle></svg><span>The reception will conclude at 5:30 PM.</span></p>
+        </div>
+        <div class="sched" lang="zh-Hans" data-lang="zh">
+          <p class="couple-names" lang="en">Nick + Taylor</p>
+          <img class="couple-art" src="couple.png" alt="" width="274" height="217">
+          <h2><svg aria-hidden="true" width="44" height="16" viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 9c8-5 16 4 24 2s3-8-1-6-2 8 6 7 9-4 11-5"></path></svg><span>婚宴流程</span><svg aria-hidden="true" width="44" height="16" viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M2 9c8-5 16 4 24 2s3-8-1-6-2 8 6 7 9-4 11-5"></path></svg></h2>
+          <ol class="timeline">
+            <li><span class="time">12:30 下午</span><span class="event">鸡尾酒时光<small>（花园厅通往户外露台）</small></span></li>
+            <li><span class="time">1:30 下午</span><span class="event">婚宴午餐开始</span></li>
+            <li><span class="time">2:15 下午</span><span class="event">家人和朋友致辞</span></li>
+            <li><span class="time">3:30 下午</span><span class="event">切蛋糕与敬酒</span></li>
+            <li><span class="time">4:15 下午</span><span class="event">婚礼小游戏</span></li>
+            <li><span class="time">4:45 下午起</span><span class="event">自由舞会</span></li>
+          </ol>
+          <p class="ends"><svg aria-hidden="true" width="140" height="22" viewBox="0 0 140 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h48M88 11h48"></path><path d="M70 10c-4-6-12-7-12-2s8 4 12 2zM70 10c4-6 12-7 12-2s-8 4-12 2zM70 10l-6 9M70 10l6 9"></path><circle cx="70" cy="10" r="1.6"></circle></svg><span>婚宴将于 5:30 下午 准时结束。</span></p>
+        </div>
+      </div>
+    </section>
+
     <nav class="tabs" aria-label="Sections">
       <button type="button" class="tab" data-go="table" data-tab="table">
         <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="3.5" r="1.5"></circle><circle cx="12" cy="20.5" r="1.5"></circle><circle cx="3.5" cy="12" r="1.5"></circle><circle cx="20.5" cy="12" r="1.5"></circle></svg>
@@ -349,6 +433,10 @@
       <button type="button" class="tab" data-go="menu" data-tab="menu">
         <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"></path><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 7v3H17"></path></svg>
         Menu
+      </button>
+      <button type="button" class="tab" data-go="schedule" data-tab="schedule">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        Schedule
       </button>
       <a class="tab photos-link" href="#" target="_blank" rel="noopener">
         <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
@@ -369,6 +457,7 @@ const PHOTOS_URL = 'https://dashboard.fotify.app/upload/6fecd401-3ecf-48c4-a082-
   const inner = document.getElementById('inner');
   const tableScreen = document.getElementById('table-screen');
   const menuScreen = document.getElementById('menu-screen');
+  const scheduleScreen = document.getElementById('schedule-screen');
   const tabs = document.querySelectorAll('.tab[data-tab]');
 
   document.querySelectorAll('.photos-link').forEach((a) => {
@@ -381,6 +470,7 @@ const PHOTOS_URL = 'https://dashboard.fotify.app/upload/6fecd401-3ecf-48c4-a082-
     inner.hidden = screen === 'home';
     tableScreen.hidden = screen !== 'table';
     menuScreen.hidden = screen !== 'menu';
+    scheduleScreen.hidden = screen !== 'schedule';
     tabs.forEach((t) => {
       if (t.dataset.tab === screen) t.setAttribute('aria-current', 'page');
       else t.removeAttribute('aria-current');
@@ -399,16 +489,18 @@ const PHOTOS_URL = 'https://dashboard.fotify.app/upload/6fecd401-3ecf-48c4-a082-
   try { history.replaceState({ screen: 'home' }, ''); } catch (e) { /* not needed to work */ }
   show('home');
 
-  /* ---------- Menu: language and course ---------- */
-  // The menu opens in Chinese; renderMenu() below applies it on load.
+  /* ---------- Menu and Schedule: language and course ---------- */
+  // Both open in Chinese and share one language choice; renderMenu() below applies it on load.
   let lang = 'zh';
   let course = 'starters';
-  const langBtns = menuScreen.querySelectorAll('.langs button');
+  const langBtns = document.querySelectorAll('.langs button');
   const courseBtns = menuScreen.querySelectorAll('.courses button');
   const courses = menuScreen.querySelectorAll('.course');
 
   function renderMenu() {
     menuScreen.classList.toggle('zh', lang === 'zh');
+    scheduleScreen.classList.toggle('zh', lang === 'zh');
+    scheduleScreen.querySelectorAll('.sched').forEach((s) => { s.hidden = s.dataset.lang !== lang; });
     langBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     courseBtns.forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.course === course));

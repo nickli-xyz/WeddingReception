@@ -64,7 +64,7 @@
 7	Emily
 7	Michael
 7	Ruth Liu
-7	David Chow
+7	Jenny妈妈
 7	Grace Li
 7	JS Lee
 9	Yanqi Li
@@ -94,6 +94,7 @@
 6	June Deng
 6	Adeline Kang
 6	Mark Kang
+6	David Chow
 6	Xinzhong Zhang
 6	Neng Wang
 11	Pauline Liu
